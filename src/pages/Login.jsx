@@ -17,10 +17,9 @@ class Login extends React.Component {
     });
   };
 
-  isLoading = async () => {
+  handleSubmit = async () => {
     const { login } = this.state;
     const { history } = this.props;
-    console.log(login);
     this.setState({ loading: true });
     await createUser({ name: login });
     history.push('search');
@@ -46,7 +45,7 @@ class Login extends React.Component {
               type="button"
               disabled={ disable }
               data-testid="login-submit-button"
-              onClick={ () => this.isLoading() }
+              onClick={ () => this.handleSubmit() }
             >
               Entrar
             </button>
