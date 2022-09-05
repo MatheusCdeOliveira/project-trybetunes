@@ -31,6 +31,7 @@ class Album extends React.Component {
         <p data-testid="album-name">{albums.collectionName}</p>
         {tracks.map((track) => (<MusicCard
           key={ track.trackId }
+          music={ track }
           trackName={ track.trackName }
           previewUrl={ track.previewUrl }
           trackId={ track.trackId }

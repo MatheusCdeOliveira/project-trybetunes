@@ -1,0 +1,37 @@
+
+.input-login {
+  border: 3px solid black;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  height: 900px;
+  flex-wrap: wrap;
+}
+
+.input-login div {
+  border: 2px black solid;
+  width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 100px
+}
+
+.input-login button {
+  margin-top: 10px;
+  width: 130%;
+  background-color: blue;
+  color: white;
+  font-size: large;
+  height: 30%;
+  border-radius: 1em;
+}
+
+.input-login input {
+  width: 100%;
+}
+
+body{ 
+  /* background-color: aqua; */
+}

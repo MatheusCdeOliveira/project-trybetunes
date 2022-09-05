@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { createUser } from '../services/userAPI';
 import Carregando from './Carregando';
+import '../style/login.css';
 
 class Login extends React.Component {
   state = {
@@ -30,26 +31,30 @@ class Login extends React.Component {
     return (
       <div data-testid="page-login">
         {loading ? <Carregando /> : (
-          <form>
-            <label htmlFor="login">
-              <input
-                type="text"
-                name="login"
-                onChange={ this.handleChange }
-                value={ login }
-                id="login"
-                data-testid="login-name-input"
-              />
-            </label>
-            <button
-              type="button"
-              disabled={ disable }
-              data-testid="login-submit-button"
-              onClick={ () => this.handleSubmit() }
-            >
-              Entrar
-            </button>
-          </form>
+          <div className="input-login">
+            <form>
+              <div>
+                <label htmlFor="login">
+                  <input
+                    type="text"
+                    name="login"
+                    onChange={ this.handleChange }
+                    value={ login }
+                    id="login"
+                    data-testid="login-name-input"
+                  />
+                </label>
+                <button
+                  type="button"
+                  disabled={ disable }
+                  data-testid="login-submit-button"
+                  onClick={ () => this.handleSubmit() }
+                >
+                  Entrar
+                </button>
+              </div>
+            </form>
+          </div>
         )}
       </div>
     );
