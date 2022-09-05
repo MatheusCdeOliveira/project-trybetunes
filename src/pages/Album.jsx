@@ -19,7 +19,7 @@ class Album extends React.Component {
     const result = await musicAPI(id);
     const tracks = result.filter((track) => Object.values(track).includes('song'));
     this.setState({ albums: result[0], tracks });
-    console.log(result);
+    return result;
   };
 
   render() {
@@ -27,12 +27,14 @@ class Album extends React.Component {
     return (
       <div data-testid="page-album">
         <Header />
-        <p data-testid="artist-name">{ albums.artistName }</p>
+        <p data-testid="artist-name">{albums.artistName}</p>
         <p data-testid="album-name">{albums.collectionName}</p>
         {tracks.map((track) => (<MusicCard
           key={ track.trackId }
           trackName={ track.trackName }
           previewUrl={ track.previewUrl }
+          trackId={ track.trackId }
+          getMusic={ this.ShowArtistAlbum }
         />))}
       </div>
     );
