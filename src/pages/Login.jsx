@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { createUser } from '../services/userAPI';
 import Carregando from './Carregando';
-import '../style/login.css';
+// import '../style/login.css';
 
 class Login extends React.Component {
   state = {
