@@ -1,4 +1,4 @@
-/* 
+/*
 .input-login {
   border: 3px solid black;
   display: flex;
@@ -31,7 +31,3 @@
 .input-login input {
   width: 100%;
 }
-
-body{ 
-  /* background-color: aqua; */
-/* } */
