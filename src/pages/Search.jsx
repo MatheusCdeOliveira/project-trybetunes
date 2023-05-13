@@ -40,6 +40,7 @@ class Search extends React.Component {
           <form>
             <label htmlFor="search">
               <input
+                className="search-input"
                 data-testid="search-artist-input"
                 value={ artist }
                 onChange={ this.handleInputChange }
@@ -48,38 +49,48 @@ class Search extends React.Component {
                 id=""
               />
             </label>
-            <button
-              type="button"
-              disabled={ enabled }
-              onClick={ this.handleClick }
-              data-testid="search-artist-button"
-            >
-              Pesquisar
+            <div className="search-btn">
+              <button
+                className="text-white text-base font-normal"
+                type="button"
+                disabled={ enabled }
+                onClick={ this.handleClick }
+                data-testid="search-artist-button"
+              >
+                Pesquisar
 
-            </button>
+              </button>
+            </div>
           </form>)}
         {album && (
-          <h2>
+          <h2 className="text-2xl font-light ml-5">
             { `Resultado de álbuns de: ${album}` }
           </h2>
         )}
-        { !albums.length ? <p>Nenhum álbum foi encontrado</p> : (
-          <div>
-            <ul>
-              {albums
-                .map((alb) => (
-                  <div key={ alb.collectionId }>
-                    <img src={ alb.artworkUrl100 } alt={ alb.collectionName } />
-                    <p>{alb.collectionName}</p>
-                    <Link
-                      data-testid={ `link-to-album-${alb.collectionId}` }
-                      to={ `/album/${alb.collectionId}` }
-                    >
-                      Album
+        { !albums.length ? <p className="text-lg">Nenhum álbum foi encontrado</p> : (
+          <div className="flex flex-col flex-wrap justify-center">
+            <ul className="">
+              <div className="flex flex-row flex-wrap w-73">
+                {albums
+                  .map((alb) => (
+                    <div key={ alb.collectionId } className="album-card flex flex-col justify-center w-72 ml-5 mt-10 m-auto">
+                      <div className="flex flex-col">
+                        <img src={ alb.artworkUrl100 } alt={ alb.collectionName } className="w-72 h-45" />
+                      </div>
+                      <div className="flex flex-col">
+                        <h1 className="ml-5 text-lg font-bold mt-5">{alb.collectionName}</h1>
+                        <Link
+                          data-testid={ `link-to-album-${alb.collectionId}` }
+                          to={ `/album/${alb.collectionId}` }
+                          className="mt-5 ml-5 h-20 text-xs font-normal leading-4"
+                        >
+                          Album
 
-                    </Link>
-                  </div>
-                ))}
+                        </Link>
+                      </div>
+                    </div>
+                  ))}
+              </div>
             </ul>
           </div>
         )}

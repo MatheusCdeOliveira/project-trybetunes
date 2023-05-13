@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { createUser } from '../services/userAPI';
 import Carregando from './Carregando';
 // import '../style/login.css';
+import trybetunes from '../trybetunesLogin.png';
 
 class Login extends React.Component {
   state = {
@@ -38,8 +39,7 @@ class Login extends React.Component {
              sm:px-6 lg:px-8 flex-col h-screen"
           >
             <div />
-            <h1 className="xl:text-green-600 drop-shadow-md lg:text-7xl ">TrybeTunes</h1>
-            <img src="../tunes.jpg" alt="" />
+            <img src={ trybetunes } className="trybeTunesImg" alt="trybeTunes.png" />
             <div
               className="form flex w-auto mt-44 h-80 bg-gray-100
              rounded-lg absolute"
