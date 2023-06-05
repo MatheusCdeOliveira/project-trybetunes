@@ -34,6 +34,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [TailWind CSS](https://tailwindcss.com/)
 - [React](https://legacy.reactjs.org/docs/getting-started.html)
 - [VSCode](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+- [Figma](https://www.figma.com/)
  
 </details>
 
@@ -57,6 +58,22 @@ As seguintes ferramentas foram usadas na construção do projeto:
  - Criar links de navegação na aplicação com o componente Link;
 
   
+</details>
+
+<details>
+  <summary><strong>🛠 Como rodar o projeto</strong></summary><br />
+
+ 1 - Clone o repositório
+  
+ 2 - Instale as dependências:
+   - `npm install`
+  
+ 3 - Inicialize o projeto:
+   - `npm start`
+  
+ 4 - Acessar no Browser:
+   - `http://localhost:3000`
+ 
 </details>
 
 
