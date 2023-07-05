@@ -73,12 +73,22 @@ class Search extends React.Component {
               <div className="flex flex-row flex-wrap w-73">
                 {albums
                   .map((alb) => (
-                    <div key={ alb.collectionId } className="album-card flex flex-col justify-center w-72 ml-5 mt-10 m-auto">
+                    <div
+                      key={ alb.collectionId }
+                      className="album-card flex flex-col
+                      justify-center w-72 ml-5 mt-10 m-auto"
+                    >
                       <div className="flex flex-col">
-                        <img src={ alb.artworkUrl100 } alt={ alb.collectionName } className="w-72 h-45" />
+                        <img
+                          src={ alb.artworkUrl100 }
+                          alt={ alb.collectionName }
+                          className="w-72 h-45"
+                        />
                       </div>
                       <div className="flex flex-col">
-                        <h1 className="ml-5 text-lg font-bold mt-5">{alb.collectionName}</h1>
+                        <h1 className="ml-5 text-lg font-bold mt-5">
+                          {alb.collectionName}
+                        </h1>
                         <Link
                           data-testid={ `link-to-album-${alb.collectionId}` }
                           to={ `/album/${alb.collectionId}` }
