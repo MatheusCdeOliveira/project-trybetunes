@@ -3,6 +3,10 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
+    screens: {
+      sm: '400px',
+      md: '768px',
+    },
     extend: {
       spacing: {
         '78px': '78px',

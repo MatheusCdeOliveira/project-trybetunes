@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
-// import { withRouter } from 'react-router-dom/cjs/react-router-dom';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Carregando from '../pages/Carregando';
 
@@ -41,14 +40,13 @@ class MusicCard extends React.Component {
   };
 
   render() {
-    const { trackName, previewUrl, trackId, image, currentLocation } = this.props;
+    const { trackName, previewUrl, trackId, image, favoriteRoute } = this.props;
     const { isLoading, isChecked } = this.state;
-    // console.log(currentLocation);
     return (
       <div id="track-div" className="flex ml-5 mt-5">
         {isLoading ? <Carregando /> : (
           <>
-            {currentLocation ? <img
+            {favoriteRoute ? <img
               src={ image }
               alt="Album img"
               className="mr-5"

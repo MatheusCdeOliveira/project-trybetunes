@@ -1,17 +1,16 @@
 /* eslint-disable react/jsx-max-depth */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { RxAvatar } from 'react-icons/rx';
 import Carregando from '../pages/Carregando';
 import { getUser } from '../services/userAPI';
-// import '../style/header.css';
 import imagem from './Group1.png';
 // import avatar from '../TrybeTunes-Figma/icon/avatar/icon/action/Path.png';
+import profileImg from '../TrybeTunes-Figma/icon/avatar/icon/action/default.png';
 
 class Header extends React.Component {
   state = {
     loading: false,
-    username: '',
+    user: {},
   };
 
   componentDidMount() {
@@ -21,11 +20,11 @@ class Header extends React.Component {
   handleUser = async () => {
     this.setState({ loading: true });
     const result = await getUser();
-    this.setState({ loading: false, username: result.name });
+    this.setState({ loading: false, user: result });
   };
 
   render() {
-    const { username, loading } = this.state;
+    const { user, loading } = this.state;
     return (
       <header data-testid="header-component" className="">
         {loading ? <Carregando /> : (
@@ -40,12 +39,17 @@ class Header extends React.Component {
               alt="tunes.jpg"
             />
             <div className="header-container-user flex bg-white absolute box-border h-10">
-              <RxAvatar className="m-auto" />
+              <img
+                src={ user.image || profileImg }
+                width="40px"
+                alt="profileImg"
+                className="rounded-full p-1"
+              />
               <p
                 data-testid="header-user-name"
                 className="p-header h-7 w-36 text-center mt-2 mr-2"
               >
-                {username}
+                {user.name}
 
               </p>
             </div>

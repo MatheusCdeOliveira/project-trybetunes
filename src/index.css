@@ -12,10 +12,10 @@ body {
 }
 
 .trybeTunesImg {
-  position: absolute;
+  position: fixed;
   width: 208px;
   height: 158px;
-  left: 834px;
+  /* left: 834px; */
   top: 59px;
 }
 

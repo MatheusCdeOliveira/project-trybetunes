@@ -39,10 +39,10 @@ class Login extends React.Component {
              sm:px-6 lg:px-8 flex-col h-screen"
           >
             <div />
-            <img src={ trybetunes } className="trybeTunesImg" alt="trybeTunes.png" />
+            <img src={ trybetunes } className="fixed top-8" alt="trybeTunes.png" />
             <div
               className="form flex w-auto mt-44 h-80 bg-gray-100
-             rounded-lg absolute"
+             rounded-lg"
             >
               <form className="m-auto p-20">
                 <div className="rounded-md shadow-sm w-96">

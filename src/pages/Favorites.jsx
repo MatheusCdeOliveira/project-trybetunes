@@ -33,7 +33,7 @@ class Favorites extends React.Component {
             trackName={ song.trackName }
             previewUrl={ song.previewUrl }
             trackId={ song.trackId }
-            currentLocation={ location.pathname }
+            favoriteRoute={ location.pathname }
             image={ song.artworkUrl100 }
           />))}
         </div>
