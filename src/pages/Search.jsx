@@ -65,7 +65,7 @@ class Search extends React.Component {
             </div>
             {album && (
               <h2 className="text-2xl font-light ml-5">
-                { `Resultado de álbuns de: ${artist}` }
+                { `Resultado de álbuns de: ${album}` }
               </h2>
             )}
           </form>)}
