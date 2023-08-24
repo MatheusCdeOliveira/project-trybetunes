@@ -141,7 +141,7 @@ class ProfileEdit extends React.Component {
                   }
                   onClick={ this.handleSubmit }
                   className="flex w-28 h-10 justify-center items-center
-                  m-auto mt-10 rounded-sm bg-#003BE5 text-white hover:bg-opacity-80"
+                  m-auto mt-10 rounded-sm bg-[#003BE5] text-white hover:bg-opacity-80"
                 >
                   Enviar
 

@@ -76,6 +76,14 @@ body {
    border-radius: 2px; 
 }
 
+.verdn {
+  background-color: #036B52;
+}
+
+.profileEditBtn {
+  color: #003BE5;
+}
+
 .album-card {
   background: #FFFFFF;
 /* gray 300 */

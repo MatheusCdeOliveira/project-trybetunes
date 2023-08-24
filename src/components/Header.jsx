@@ -24,7 +24,7 @@ class Header extends React.Component {
   render() {
     const { user, loading } = this.state;
     const { favoriteRoute, searchRoute, profileRoute } = this.props;
-    const navSelected = 'bg-verdin text-gray-50';
+    const navSelected = 'bg-[#036B52] text-gray-50';
     const navNotSelected = 'text-#2FC18C';
     return (
       <header data-testid="header-component" className="">

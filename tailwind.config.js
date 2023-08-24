@@ -17,7 +17,7 @@ module.exports = {
         '87px': '87px',
       },
       colors: {
-        verdin: '#036B52',
+        '#036B52': '#036B52',
         '#F0F2F5': '#F0F2F5',
         '#2FC18C': '#2FC18C',
         '#003BE5': '#003BE5',
