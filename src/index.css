@@ -77,11 +77,11 @@ body {
 }
 
 .verdin {
-  @apply bg-#036B52
+  background-color: #036B52;
 }
 
 .profileEditBtn {
-  @apply bg-#003BE5
+  background-color: #003BE5;
 }
 
 .album-card {
