@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Carregando from './Carregando';
@@ -33,9 +34,10 @@ class Search extends React.Component {
 
   render() {
     const { artist, enabled, requestAlbum, album, albums } = this.state;
+    const { location } = this.props;
     return (
       <div data-testid="page-search">
-        <Header />
+        <Header searchRoute={ location.pathname } />
         {requestAlbum ? <Carregando /> : (
           <form>
             <label htmlFor="search">
@@ -61,12 +63,12 @@ class Search extends React.Component {
 
               </button>
             </div>
+            {album && (
+              <h2 className="text-2xl font-light ml-5">
+                { `Resultado de álbuns de: ${artist}` }
+              </h2>
+            )}
           </form>)}
-        {album && (
-          <h2 className="text-2xl font-light ml-5">
-            { `Resultado de álbuns de: ${album}` }
-          </h2>
-        )}
         { !albums.length ? <p className="text-lg">Nenhum álbum foi encontrado</p> : (
           <div className="flex flex-col flex-wrap justify-center">
             <ul className="">
@@ -108,5 +110,9 @@ class Search extends React.Component {
     );
   }
 }
+
+Search.propTypes = {
+  pathanme: PropTypes.string,
+}.isRequired;
 
 export default Search;

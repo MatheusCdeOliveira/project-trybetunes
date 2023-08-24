@@ -24,9 +24,10 @@ class Album extends React.Component {
 
   render() {
     const { albums, tracks } = this.state;
+    const { location } = this.props;
     return (
       <div data-testid="page-album">
-        <Header />
+        <Header searchRoute={ location.pathname } />
         <div className="flex flex-row justify-evenly">
           <div className="flex flex-col mt-32">
             <img
@@ -63,6 +64,9 @@ Album.propTypes = {
     params: PropTypes.shape({
       id: PropTypes.string,
     }),
+  }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
   }).isRequired,
 };
 

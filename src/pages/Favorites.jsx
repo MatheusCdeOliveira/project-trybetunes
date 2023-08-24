@@ -24,7 +24,7 @@ class Favorites extends React.Component {
     const { location } = this.props;
     return (
       <div data-testid="page-favorites">
-        <Header />
+        <Header favoriteRoute={ location.pathname } />
         <div className="pl-32">
           <h2 className="text-lg font-bold p-8">Músicas favoritas:</h2>
           {favoritedSongs.map((song) => (<MusicCard

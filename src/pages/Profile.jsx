@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import { getUser } from '../services/userAPI';
 import Carregando from './Carregando';
@@ -19,9 +20,10 @@ class Profile extends React.Component {
 
   render() {
     const { user, loading } = this.state;
+    const { location } = this.props;
     return (
       <div data-testid="page-profile">
-        <Header />
+        <Header profileRoute={ location.pathname } />
         {loading ? <Carregando /> : (
           <div className="m-auto w-96 flex flex-col mt-16">
             <div className="flex justify-between w-full pl-4">
@@ -60,5 +62,9 @@ class Profile extends React.Component {
     );
   }
 }
+
+Profile.propTypes = {
+  pathanme: PropTypes.string,
+}.isRequired;
 
 export default Profile;
