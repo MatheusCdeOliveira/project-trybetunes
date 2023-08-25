@@ -44,39 +44,37 @@ class MusicCard extends React.Component {
     const { isLoading, isChecked } = this.state;
     return (
       <div id="track-div" className="flex ml-5 mt-5">
-        {isLoading ? <Carregando /> : (
-          <>
-            {favoriteRoute ? <img
-              src={ image }
-              alt="Album img"
-              className="mr-5"
-              width="100px"
-            /> : ''}
-            <h3 className="mt-4 mr-4">{ trackName }</h3>
-            <audio data-testid="audio-component" src={ previewUrl } controls>
-              <track kind="captions" />
-              O seu navegador não suporta o elemento
-              {' '}
-              <code>audio</code>
-              .
-            </audio>
-            <label
-              data-testid={ `checkbox-music-${trackId}` }
-              htmlFor={ trackId }
-              className="mt-4 ml-4"
-            >
-              { isChecked ? <MdFavorite className="text-red-600 text-2xl" />
-                : <MdFavoriteBorder className="text-2xl" /> }
-              <input
-                className="hidden"
-                type="checkbox"
-                name="favorite"
-                id={ trackId }
-                onChange={ this.handleFavorite }
-                checked={ isChecked }
-              />
-            </label>
-          </>
+        {favoriteRoute ? <img
+          src={ image }
+          alt="Album img"
+          className="mr-5"
+          width="100px"
+        /> : ''}
+        <h3 className="mt-4 mr-4">{ trackName }</h3>
+        <audio data-testid="audio-component" src={ previewUrl } controls>
+          <track kind="captions" />
+          O seu navegador não suporta o elemento
+          {' '}
+          <code>audio</code>
+          .
+        </audio>
+        { isLoading ? <Carregando /> : (
+          <label
+            data-testid={ `checkbox-music-${trackId}` }
+            htmlFor={ trackId }
+            className="mt-4 ml-4"
+          >
+            { isChecked ? <MdFavorite className="text-red-600 text-2xl" />
+              : <MdFavoriteBorder className="text-2xl" /> }
+            <input
+              className="hidden"
+              type="checkbox"
+              name="favorite"
+              id={ trackId }
+              onChange={ this.handleFavorite }
+              checked={ isChecked }
+            />
+          </label>
         )}
       </div>
     );

@@ -32,6 +32,12 @@ class Search extends React.Component {
       requestAlbum: false, artist: '', albums: [...result] });
   };
 
+  handleKeyPress = (e) => {
+    if (e.code === 'Enter') {
+      this.handleClick();
+    }
+  };
+
   render() {
     const { artist, enabled, requestAlbum, album, albums } = this.state;
     const { location } = this.props;
@@ -47,6 +53,7 @@ class Search extends React.Component {
                 value={ artist }
                 onChange={ this.handleInputChange }
                 type="text"
+                onKeyDown={ this.handleKeyPress }
                 name="search"
                 id=""
               />
