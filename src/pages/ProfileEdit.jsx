@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { PiCheckCircleFill, PiWarningCircle } from 'react-icons/pi';
 import Header from '../components/Header';
 import Carregando from './Carregando';
 import { getUser, updateUser } from '../services/userAPI';
@@ -24,11 +25,15 @@ class ProfileEdit extends React.Component {
     this.setState({ [name]: value });
   };
 
+  validateEmail = (email) => /\S+@\S+\.\S+/.test(email);
+
   handleSubmit = () => {
     const { image, name, email, description } = this.state;
     const { history } = this.props;
-    updateUser({ image, name, email, description });
-    history.push('/profile');
+    if (this.validateEmail(email)) {
+      updateUser({ image, name, email, description });
+      history.push('/profile');
+    }
   };
 
   render() {
@@ -39,7 +44,7 @@ class ProfileEdit extends React.Component {
         <Header profileRoute={ location.pathname } />
         {loading ? <Carregando /> : (
           <form action="">
-            <div className="m-auto w-96 flex flex-col mt-16">
+            <div className="m-auto w-[425px] flex flex-col mt-16">
               <div className="flex justify-between items-end w-full">
                 <img
                   className="rounded-full h-20"
@@ -52,7 +57,7 @@ class ProfileEdit extends React.Component {
                   <input
                     type="text"
                     name="image"
-                    className="h-9 rounded-sm border border-gray-200"
+                    className="h-9 rounded-sm border border-gray-200 mr-9"
                     value={ image }
                     onChange={ this.handleInputs }
                     placeholder="Insira um Link"
@@ -84,7 +89,7 @@ class ProfileEdit extends React.Component {
                   />
                 </label>
               </div>
-              <div className="w-96 h-[87px] gap-2 mt-10">
+              <div className="w-[425px] h-[87px] gap-2 mt-10">
                 <label
                   htmlFor="email"
                   className="w-72 h-10 mt-5 text-opacity-90
@@ -95,18 +100,22 @@ class ProfileEdit extends React.Component {
                     className="text-base text-gray-600 font-normal
                    italic text-opacity-70"
                   >
-                    Escolha um email que consulte diariamente
+                    Escolha um email válido
                   </p>
                   <input
                     type="email"
                     onChange={ this.handleInputs }
                     value={ email }
                     placeholder="exemplo123@gmail.com"
-                    className="w-full h-9 border-b text-gray-700 text-opacity-100
+                    className="w-96 h-9 border-b text-gray-700 text-opacity-100
                     text-sm font-normal border-gray-500 bg-gray-100"
                     name="email"
                     id="email"
                   />
+                  { this.validateEmail(email) ? <PiCheckCircleFill
+                    className="text-green-600 float-right mt-2"
+                  />
+                    : <PiWarningCircle className="text-red-600 float-right mt-2" />}
                 </label>
               </div>
               <p id="result" />
@@ -132,6 +141,7 @@ class ProfileEdit extends React.Component {
                     value={ description }
                     cols="24"
                     rows="2"
+                    maxLength="500"
                   />
                 </label>
                 <button
@@ -140,10 +150,10 @@ class ProfileEdit extends React.Component {
                     !image || !name || !email || !description
                   }
                   onClick={ this.handleSubmit }
-                  className="flex w-28 h-10 justify-center items-center
-                  m-auto mt-10 rounded-sm profileEditBtn text-white hover:bg-opacity-80"
+                  className="flex bg-red-600 w-28 h-10 justify-center items-center
+                  m-auto mt-10 rounded-sm text-white hover:bg-opacity-80"
                 >
-                  Enviar
+                  Salvar
 
                 </button>
               </div>

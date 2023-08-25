@@ -15,7 +15,6 @@ body {
   position: fixed;
   width: 208px;
   height: 158px;
-  /* left: 834px; */
   top: 59px;
 }
 
@@ -73,15 +72,15 @@ body {
   padding: 8px 32px;
   gap: 10px;
   background: #003BE5;
-   border-radius: 2px; 
+  border-radius: 2px; 
 }
 
-.verdin {
+/* .verdin {
   background-color: #036B52;
-}
+} */
 
 .profileEditBtn {
-  background-color: #003BE5;
+  background-color: rgb(0, 59, 229);
 }
 
 .album-card {

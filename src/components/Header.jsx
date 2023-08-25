@@ -24,7 +24,7 @@ class Header extends React.Component {
   render() {
     const { user, loading } = this.state;
     const { favoriteRoute, searchRoute, profileRoute } = this.props;
-    const navSelected = 'verdin text-gray-50';
+    const navSelected = 'bg-verde text-gray-50';
     const navNotSelected = 'text-#2FC18C';
     return (
       <header data-testid="header-component" className="">
@@ -58,11 +58,11 @@ class Header extends React.Component {
           <ul className="flex flex-row bg-gray-200 justify-between w-full">
             <li
               className={ `${searchRoute ? navSelected : navNotSelected}
-              font-bold text-gray-50 border-r-4 border-white
-              h-[78px] text-3xl leading-7 not-italic
+              font-bold border-r-4 border-white
+              h-[78px] text-3xl
               text-center flex justify-center items-center w-1/3` }
             >
-              <Link data-testid="link-to-search" to="/search">Search</Link>
+              <Link data-testid="link-to-search" to="/search">Buscar</Link>
             </li>
             <li
               className={ `${favoriteRoute ? navSelected : navNotSelected} 
@@ -74,7 +74,7 @@ class Header extends React.Component {
                 to="/favorites"
                 className=""
               >
-                Favorites
+                Favoritos
               </Link>
 
             </li>
@@ -83,7 +83,7 @@ class Header extends React.Component {
               h-[78px] text-3xl font-bold w-1/3
               text-center flex justify-center items-center` }
             >
-              <Link data-testid="link-to-profile" to="/profile">Profile</Link>
+              <Link data-testid="link-to-profile" to="/profile">Perfil</Link>
 
             </li>
           </ul>
